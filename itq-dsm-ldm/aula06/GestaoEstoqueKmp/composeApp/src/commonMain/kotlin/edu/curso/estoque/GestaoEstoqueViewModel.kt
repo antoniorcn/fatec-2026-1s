@@ -18,30 +18,7 @@ class GestaoEstoqueViewModel : ViewModel() {
     val httpClient = createHttpClient()
     val produtoApi = ProdutoApi(httpClient)
 
-    var produtos = mutableStateListOf<Produto>(
-//        Produto(
-//            id = 1,
-//            categoria = "Eletrônicos",
-//            sku = "ELEC-001",
-//            nome = "Smartphone XYZ",
-//            descricao = "Smartphone com tela de 6.5 polegadas, 128GB de armazenamento e câmera de 48MP.",
-//            estoqueMinimo = 10.0,
-//            ativo = true,
-//            criadoEm = "2024-01-15",
-//            imagem = "https://example.com/smartphone_xyz.jpg"
-//        ),
-//        Produto(
-//            id = 2,
-//            categoria = "Eletrodomésticos",
-//            sku = "ELETRO-002",
-//            nome = "Geladeira ABC",
-//            descricao = "Geladeira com capacidade de 300 litros, eficiência energética A++ e dispenser de água.",
-//            estoqueMinimo = 5.0,
-//            ativo = true,
-//            criadoEm = "2024-02-20",
-//            imagem = "https://example.com/geladeira_abc.jpg"
-//        )
-    )
+    var produtos = mutableStateListOf<Produto>()
     var categoria by mutableStateOf("")
     var sku by mutableStateOf("")
     var nome by mutableStateOf("")
