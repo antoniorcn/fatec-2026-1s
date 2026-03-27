@@ -11,14 +11,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation3.runtime.NavKey
 import edu.curso.api.httpClient
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.request.delete
-import io.ktor.client.request.get
-import io.ktor.client.request.post
-import io.ktor.client.request.setBody
-import io.ktor.http.ContentType
-import io.ktor.http.contentType
+import io.ktor.client.call.*
+import io.ktor.client.request.*
+import io.ktor.http.*
 import kotlinx.coroutines.launch
 
 class ProdutoViewModel : ViewModel() {
@@ -103,10 +98,10 @@ class ProdutoViewModel : ViewModel() {
             .body<Map<String, Produto>>()
         lista.clear()
         val tempLista = mutableListOf<Produto>()
-        dados.forEach({ (chave, valor) ->
+        dados.forEach { (chave, valor) ->
             valor.id = chave
             tempLista.add( valor )
-        })
+        }
         lista.addAll( tempLista )
         println("Dados carregados")
     }
