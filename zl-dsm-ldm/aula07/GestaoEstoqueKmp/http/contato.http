@@ -1,0 +1,21 @@
+### Ler lista de usuarios
+GET https://zl-dsm-ldm-2026-1s-default-rtdb.firebaseio.com/produto.json HTTP/1.1
+
+
+### Grava um novo produto
+POST https://zl-dsm-ldm-2026-1s-default-rtdb.firebaseio.com/produto.json HTTP/1.1
+Content-Type: application/json
+
+{
+  "ativo": true,
+  "criadoEm": "2026-03-25",
+  "descricao": "Agua de coco Sococo 1L",
+  "id": "00002",
+  "nome": "Agua de Coco 1L",
+  "sku": "000232",
+  "url": "https://sococo.com.br"
+}
+
+
+### Apaga um produto
+DELETE https://zl-dsm-ldm-2026-1s-default-rtdb.firebaseio.com/produto/-Oo_A8p3P5iOTck8Hm8_.json HTTP/1.1
