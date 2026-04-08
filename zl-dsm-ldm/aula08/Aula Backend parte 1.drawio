@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="hMXNkZxoBxx-4DZH6lWB">
+    <mxGraphModel dx="808" dy="425" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-18" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Browser.svg;" value="" vertex="1">
+          <mxGeometry height="70" width="87.5" x="120" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="220" width="230" x="355" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-10" parent="1" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Browser.svg;" value="" vertex="1">
+          <mxGeometry height="90" width="112.5" x="70" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Servidor Backend" vertex="1">
+          <mxGeometry height="60" width="120" x="410" y="194" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-2" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="DB" vertex="1">
+          <mxGeometry height="80" width="60" x="630" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-3" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.014;entryY=0.552;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="nBRwC_tFt1UFAjoSA9CY-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="360" as="sourcePoint" />
+            <mxPoint x="400" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-11" parent="1" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Managed_Desktop.svg;" value="" vertex="1">
+          <mxGeometry height="90" width="125" x="21.25" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-12" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-11" style="endArrow=classic;html=1;rounded=0;entryX=0.004;entryY=0.473;entryDx=0;entryDy=0;entryPerimeter=0;" target="nBRwC_tFt1UFAjoSA9CY-15" value="HTTP Request">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0773" y="12" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="350" y="360" as="sourcePoint" />
+            <mxPoint x="400" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-13" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-15" style="endArrow=classic;html=1;rounded=0;exitX=0.007;exitY=0.658;exitDx=0;exitDy=0;entryX=0.996;entryY=0.338;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="nBRwC_tFt1UFAjoSA9CY-11" value="HTTP Response">
+          <mxGeometry height="50" relative="1" width="50" x="-0.0309" y="13" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="350" y="360" as="sourcePoint" />
+            <mxPoint x="400" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-6" parent="1" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.phone2;strokeColor=#c0c0c0;" value="" vertex="1">
+          <mxGeometry height="110" width="60" x="10" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Servidor Web&lt;div&gt;(html, js, css, png, jpg, webp)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="410" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="App cliente" vertex="1">
+          <mxGeometry height="30" width="60" x="70" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-17" parent="1" style="shape=actor;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="80" width="80" x="70" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Controller" vertex="1">
+          <mxGeometry height="60" width="120" x="370" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-20" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-18" style="endArrow=classic;html=1;rounded=0;exitX=0.98;exitY=0.484;exitDx=0;exitDy=0;exitPerimeter=0;" target="nBRwC_tFt1UFAjoSA9CY-19" value="HTTP Request">
+          <mxGeometry height="50" relative="1" width="50" x="0.025" y="14" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="330" y="810" as="sourcePoint" />
+            <mxPoint x="380" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Model" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-22" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-21" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.002;exitY=0.412;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="nBRwC_tFt1UFAjoSA9CY-19" value="Gravar/Ler">
+          <mxGeometry height="50" relative="1" width="50" x="-0.2507" y="-22" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="330" y="810" as="sourcePoint" />
+            <mxPoint x="380" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="View" vertex="1">
+          <mxGeometry height="60" width="120" x="370" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-25" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-19" style="endArrow=classic;html=1;rounded=0;exitX=0.707;exitY=1.005;exitDx=0;exitDy=0;exitPerimeter=0;" value="Injeta o modelo">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="810" as="sourcePoint" />
+            <mxPoint x="455" y="789" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-26" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-24" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.193;entryY=1.036;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="nBRwC_tFt1UFAjoSA9CY-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="820" as="sourcePoint" />
+            <mxPoint x="630" y="770" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-27" edge="1" parent="1" source="nBRwC_tFt1UFAjoSA9CY-24" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.973;entryY=0.867;entryDx=0;entryDy=0;entryPerimeter=0;" target="nBRwC_tFt1UFAjoSA9CY-18" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="810" as="sourcePoint" />
+            <mxPoint x="380" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nBRwC_tFt1UFAjoSA9CY-28" connectable="0" parent="nBRwC_tFt1UFAjoSA9CY-27" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HTTP Response" vertex="1">
+          <mxGeometry relative="1" x="0.1362" y="1" as="geometry">
+            <mxPoint x="-6" y="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
