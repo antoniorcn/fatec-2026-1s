@@ -32,5 +32,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "edu.curso.Tela"
+    mainClass = "edu.curso.TelaPesquisa"
 }
