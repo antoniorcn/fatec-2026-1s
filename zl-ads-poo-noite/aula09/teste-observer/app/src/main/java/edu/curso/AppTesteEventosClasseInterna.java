@@ -4,7 +4,6 @@
 package edu.curso;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -25,20 +24,20 @@ import javafx.stage.Stage;
 // }
 
 
-public class App extends Application {
+public class AppTesteEventosClasseInterna extends Application {
 
     private Label lblTitulo;
     private Label lblSubTitulo;
 
-    // class AssinanteClique implements EventHandler<MouseEvent> { 
-    //     public void handle(MouseEvent e) { 
-    //         if (e.getSource() == lblTitulo) {
-    //             System.out.println("Clicado no Titulo");
-    //         } else if (e.getSource() == lblSubTitulo) {
-    //             System.out.println("Clicado no SubTitulo");
-    //         }    
-    //     }
-    // }
+    class AssinanteClique implements EventHandler<MouseEvent> { 
+        public void handle(MouseEvent e) { 
+            if (e.getSource() == lblTitulo) {
+                System.out.println("Clicado no Titulo");
+            } else if (e.getSource() == lblSubTitulo) {
+                System.out.println("Clicado no SubTitulo");
+            }    
+        }
+    }
 
     @Override
     public void start(Stage stage) { 
@@ -46,32 +45,15 @@ public class App extends Application {
 
         lblTitulo = new Label("Titulo");
         lblTitulo.setStyle("-fx-font-size: 32");
-        
-
-        // lblTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, 
-        //     e -> System.out.println("Clicado no Titulo")
-        // );
-        lblTitulo.setOnMouseClicked(e -> System.out.println("Clicado no Titulo"));
+        AssinanteClique as1 = new AssinanteClique();
+        lblTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, as1);
 
         lblSubTitulo = new Label("Sub Titulo");
         lblSubTitulo.setStyle("-fx-font-size: 28");
-        // lblSubTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, 
-        //     e -> System.out.println("Clicado no SubTitulo")
-        // );
-        lblSubTitulo.setOnMouseClicked(e -> System.out.println("Clicado no SubTitulo"));
+        lblSubTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, as1);
 
         Button btnSalvar = new Button("Salvar");
-        EventHandler<ActionEvent> man1 = new EventHandler<>() { 
-            public void handle(ActionEvent e) { 
-                System.out.println("Salvando...");
-            }
-        };
-        btnSalvar.addEventHandler(ActionEvent.ANY, man1);
-
-        
         Button btnPesquisar = new Button("Pesquisar");
-        btnPesquisar.setOnAction( e -> System.out.println("Pesquisando...") );
-        
         VBox titulos  = new VBox(lblTitulo, lblSubTitulo);
         titulos.setAlignment(Pos.CENTER);
         painel.setTop( titulos );

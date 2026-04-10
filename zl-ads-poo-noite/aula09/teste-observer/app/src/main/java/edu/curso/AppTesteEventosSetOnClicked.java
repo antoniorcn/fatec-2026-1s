@@ -4,7 +4,6 @@
 package edu.curso;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -25,7 +24,7 @@ import javafx.stage.Stage;
 // }
 
 
-public class App extends Application {
+public class AppTesteEventosSetOnClicked extends Application {
 
     private Label lblTitulo;
     private Label lblSubTitulo;
@@ -61,17 +60,9 @@ public class App extends Application {
         lblSubTitulo.setOnMouseClicked(e -> System.out.println("Clicado no SubTitulo"));
 
         Button btnSalvar = new Button("Salvar");
-        EventHandler<ActionEvent> man1 = new EventHandler<>() { 
-            public void handle(ActionEvent e) { 
-                System.out.println("Salvando...");
-            }
-        };
-        btnSalvar.addEventHandler(ActionEvent.ANY, man1);
-
-        
+        btnSalvar.setOnMouseClicked( e -> System.out.println("Salvando ... "));
         Button btnPesquisar = new Button("Pesquisar");
-        btnPesquisar.setOnAction( e -> System.out.println("Pesquisando...") );
-        
+        btnPesquisar.setOnMouseClicked( e -> System.out.println("Pesquisando ... "));
         VBox titulos  = new VBox(lblTitulo, lblSubTitulo);
         titulos.setAlignment(Pos.CENTER);
         painel.setTop( titulos );

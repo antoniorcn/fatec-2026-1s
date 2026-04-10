@@ -4,7 +4,6 @@
 package edu.curso;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -25,7 +24,7 @@ import javafx.stage.Stage;
 // }
 
 
-public class App extends Application {
+public class AppTesteEventosArrowFunction extends Application {
 
     private Label lblTitulo;
     private Label lblSubTitulo;
@@ -47,31 +46,22 @@ public class App extends Application {
         lblTitulo = new Label("Titulo");
         lblTitulo.setStyle("-fx-font-size: 32");
         
+        EventHandler<MouseEvent> as1 = e -> { 
+            System.out.println("Clicado no Titulo");
+        };
 
-        // lblTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, 
-        //     e -> System.out.println("Clicado no Titulo")
-        // );
-        lblTitulo.setOnMouseClicked(e -> System.out.println("Clicado no Titulo"));
+        EventHandler<MouseEvent> as2 = e -> { 
+            System.out.println("Clicado no SubTitulo");
+        };
+
+        lblTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, as1);
 
         lblSubTitulo = new Label("Sub Titulo");
         lblSubTitulo.setStyle("-fx-font-size: 28");
-        // lblSubTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, 
-        //     e -> System.out.println("Clicado no SubTitulo")
-        // );
-        lblSubTitulo.setOnMouseClicked(e -> System.out.println("Clicado no SubTitulo"));
+        lblSubTitulo.addEventHandler(MouseEvent.MOUSE_CLICKED, as2);
 
         Button btnSalvar = new Button("Salvar");
-        EventHandler<ActionEvent> man1 = new EventHandler<>() { 
-            public void handle(ActionEvent e) { 
-                System.out.println("Salvando...");
-            }
-        };
-        btnSalvar.addEventHandler(ActionEvent.ANY, man1);
-
-        
         Button btnPesquisar = new Button("Pesquisar");
-        btnPesquisar.setOnAction( e -> System.out.println("Pesquisando...") );
-        
         VBox titulos  = new VBox(lblTitulo, lblSubTitulo);
         titulos.setAlignment(Pos.CENTER);
         painel.setTop( titulos );
