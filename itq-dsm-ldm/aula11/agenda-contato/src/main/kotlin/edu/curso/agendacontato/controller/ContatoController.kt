@@ -6,6 +6,7 @@ import edu.curso.agendacontato.mapping.ContatoMapping
 import edu.curso.agendacontato.model.Contato
 import edu.curso.agendacontato.repository.ContatoRepository
 import edu.curso.agendacontato.service.ContatoService
+import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -40,7 +41,7 @@ class ContatoController(
     }
 
     @PostMapping
-    fun gravar(@RequestBody contatoDto : ContatoDto) : ResponseEntity<String> {
+    fun gravar(@Valid @RequestBody contatoDto : ContatoDto) : ResponseEntity<String> {
         println("Recebido contato: $contatoDto")
         service.salvar( mapping.toEntity(contatoDto) )
         return ResponseEntity.ok().body("Gravado com sucesso")
