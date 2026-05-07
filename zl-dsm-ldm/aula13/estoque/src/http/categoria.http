@@ -1,0 +1,12 @@
+GET http://localhost:8080/api/categoria HTTP/1.1
+
+
+###
+
+POST http://localhost:8080/api/categoria HTTP/1.1
+Content-Type: application/json
+
+{
+  "nome": "Equipamentos de Informática",
+  "descricao": "Categoria para equipamentos relacionados à informática, como computadores, laptops, periféricos e acessórios."
+}
