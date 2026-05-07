@@ -31,10 +31,9 @@ class AuthController(
             ResponseEntity<String>
     {
         try {
-            val passwordEncoded = passwordEncoder.encode(credenciais.password)
             val authObj = authenticationManager.authenticate(
                 UsernamePasswordAuthenticationToken(
-                    credenciais.email, passwordEncoded
+                    credenciais.email, credenciais.password
                 )
             )
             print("Authentication Object $authObj")
@@ -58,7 +57,7 @@ class AuthController(
 
             val authObj = authenticationManager.authenticate(
                 UsernamePasswordAuthenticationToken(
-                    usuarioDTO.email, passwordEncoded
+                    usuarioDTO.email, usuarioDTO.password
                 )
             )
             ResponseEntity.ok("Registro efetuado com sucesso")

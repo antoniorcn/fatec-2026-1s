@@ -57,7 +57,8 @@ class SecurityConfiguration(
     }
 
     @Bean
-    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    fun securityFilterChain(http: HttpSecurity,
+                            authenticationProvider : AuthenticationProvider): SecurityFilterChain {
         return http
             .csrf { csrf -> csrf.disable() }
             .authorizeHttpRequests { auth ->
@@ -70,7 +71,7 @@ class SecurityConfiguration(
                 session ->
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
-            .authenticationProvider(authenticationProvider())
+            .authenticationProvider(authenticationProvider)
             .build()
     }
 }
