@@ -1,0 +1,19 @@
+POST http://localhost:8080/api HTTP/1.1
+Content-Type: application/json
+
+{
+  "nome": "Jose Santos",
+  "telefone": "(11) 1111-1111",
+  "email": "jose@teste.com"
+}
+
+
+###
+
+GET http://localhost:8080/api HTTP/1.1
+Authorization: Basic dXNlcjoxMWI3MDY5Yy0yYzVlLTQ4NGQtOWU2My02NTcwN2QyY2FhYzk=
+
+###
+
+GET http://localhost:8080/api/Jose HTTP/1.1
+Authorization: Basic dXNlcjoxMWI3MDY5Yy0yYzVlLTQ4NGQtOWU2My02NTcwN2QyY2FhYzk=
