@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Dados do projeto </h1>
+    <h2 th:text="${projeto}"></h2>
+
+    <h2 th:text="${datetime}"></h2>
+
+    <div th:object="${pessoa}">
+        <h1 th:text="*{nome}">Nome</h1>
+        <p th:text="*{email}">Email</p>
+        <p th:text="*{telefone}">Telefone</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+GET http://localhost:8080/api/categoria HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzaXN0ZW1hLWVzdG9xdWUiLCJzdWIiOiJtYXJpYUB0ZXN0ZS5jb20iLCJleHAiOjE3Nzg2Nzk1ODgsImlhdCI6MTc3ODY3NTk4OCwicm9sZXMiOiJST0xFX0FETUlOICBGQUNUT1JfUEFTU1dPUkQifQ.ovy0gxNTQ3X8lORLSht31wZj-Ua4cbr7GgGCBYqshq7iax9Euh-AxRD6jyzbDGGsDMwZUX7PHyLdsmd4G-M4GQ
+
+
+
+###
+
+POST http://localhost:8080/api/categoria HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJzaXN0ZW1hLWVzdG9xdWUiLCJzdWIiOiJtYXJpYUB0ZXN0ZS5jb20iLCJleHAiOjE3Nzg2Nzk1ODgsImlhdCI6MTc3ODY3NTk4OCwicm9sZXMiOiJST0xFX0FETUlOICBGQUNUT1JfUEFTU1dPUkQifQ.ovy0gxNTQ3X8lORLSht31wZj-Ua4cbr7GgGCBYqshq7iax9Euh-AxRD6jyzbDGGsDMwZUX7PHyLdsmd4G-M4GQ
+Content-Type: application/json
+
+{
+  "nome": "Equipamentos de Informática",
+  "descricao": "Categoria para equipamentos relacionados à informática, como computadores, laptops, periféricos e acessórios."
+}
+
+
