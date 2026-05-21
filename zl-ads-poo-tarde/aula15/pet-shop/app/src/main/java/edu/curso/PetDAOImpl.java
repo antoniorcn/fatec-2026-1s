@@ -3,17 +3,20 @@ package edu.curso;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PetDAOImpl implements PetDAO {
-    private static final String DB_JDBC_URI = "jdbc:mariadb://localhost:3306/agenda?allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true";
+    private static final String DB_JDBC_URI = "jdbc:mariadb://localhost:3306/zl_pet_tarde?allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "123456"; 
     private Connection con;
 
     public PetDAOImpl() { 
-        System.out.println("Pet Control criado - com database");
+        System.out.println("Pet DAO criado - com database");
         try {        
             Class.forName("org.mariadb.jdbc.Driver");
             System.out.println("Classe carregada...");
@@ -47,7 +50,28 @@ public class PetDAOImpl implements PetDAO {
 
     @Override
     public List<Pet> consultarPorNome(String nome) {
-        
+        List<Pet> lista = new ArrayList<>();
+        try { 
+            String sql = "SELECT * FROM pet WHERE nome = ?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, nome );
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) { 
+                String petNome = rs.getString("nome");
+                String tipo = rs.getString("tipo");
+                LocalDate nascimento = rs.getDate("nascimento").toLocalDate();
+                Pet p = new Pet();
+                p.setNome( petNome );
+                p.setTipo( tipo );
+                p.setNascimento( nascimento );
+                lista.add( p );
+            }
+            System.out.println("Comando executado com sucesso");   
+        } catch (SQLException e) {
+            System.out.println("Erro ao conectar");
+            e.printStackTrace();
+        }
+        return lista;
     }
     
 }

@@ -6,18 +6,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class PetControl {
     private ObservableList<Pet> lista = FXCollections.observableArrayList();
-
-    private Connection con;
 
     StringProperty nome = new SimpleStringProperty("");
     StringProperty tipo = new SimpleStringProperty("");
@@ -42,27 +34,10 @@ public class PetControl {
     }
 
     public void carregar() { 
-        try { 
-            String sql = "SELECT * FROM pet";
-            PreparedStatement stm = con.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-
-            lista.clear();
-            while (rs.next()) { 
-                String nome = rs.getString("nome");
-                String tipo = rs.getString("tipo");
-                LocalDate nascimento = rs.getDate("nascimento").toLocalDate();
-                Pet p = new Pet();
-                p.setNome( nome );
-                p.setTipo( tipo );
-                p.setNascimento( nascimento );
-                lista.add( p );
-            }
-            System.out.println("Comando executado com sucesso");   
-        } catch (SQLException e) {
-            System.out.println("Erro ao conectar");
-            e.printStackTrace();
-        }
+        lista.clear();
+        lista.addAll(
+            dao.consultarPorNome( nome.get() )
+        );
     }
  
     public void pesquisar() { 
