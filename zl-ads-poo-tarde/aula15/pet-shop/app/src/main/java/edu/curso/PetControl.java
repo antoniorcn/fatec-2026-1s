@@ -4,13 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import java.time.LocalDate;
 
 public class PetControl {
     private ObservableList<Pet> lista = FXCollections.observableArrayList();
 
+    LongProperty id = new SimpleLongProperty( -1 );
     StringProperty nome = new SimpleStringProperty("");
     StringProperty tipo = new SimpleStringProperty("");
     ObjectProperty<LocalDate> nascimento = new SimpleObjectProperty<>(LocalDate.now());
@@ -18,10 +21,11 @@ public class PetControl {
     private PetDAO dao = new PetDAOImpl();
 
     public PetControl() { 
-        
+        carregar();
     }
 
-    public void limparCampos() { 
+    public void limparCampos() {
+        id.set(-1);
         tipo.set("");
         nome.set("");
         nascimento.set(LocalDate.now());
@@ -29,27 +33,32 @@ public class PetControl {
 
     public void salvar() { 
         Pet p = toEntity();
-        lista.add( p );
-        dao.cadastrar(p);
+        if (p.getId() > 0) {
+            dao.atualizar( p.getId(), p );
+        } else { 
+            dao.cadastrar(p);
+        }
+        limparCampos();
+        carregar();
     }
 
     public void carregar() { 
         lista.clear();
         lista.addAll(
-            dao.consultarPorNome( nome.get() )
+            dao.consultarPorNome( "" )
         );
     }
  
     public void pesquisar() { 
-        for ( Pet p : lista ) { 
-            if (p.getNome().contains( nome.get() )) { 
-                toBoundary( p );
-            }
-        }
+        lista.clear();
+        lista.addAll(
+            dao.consultarPorNome( nome.get() )
+        );
     }
 
     public Pet toEntity() { 
         Pet p = new Pet();
+        p.setId( id.get() );
         p.setTipo( tipo.get() );
         p.setNome( nome.get() );
         p.setNascimento( nascimento.get() );
@@ -57,7 +66,8 @@ public class PetControl {
     }
 
     public void toBoundary(Pet p) { 
-        if (p != null) { 
+        if (p != null) {
+            id.set( p.getId() );
             tipo.set(p.getTipo());
             nome.set(p.getNome());
             nascimento.set( p.getNascimento() );

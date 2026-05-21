@@ -52,15 +52,17 @@ public class PetDAOImpl implements PetDAO {
     public List<Pet> consultarPorNome(String nome) {
         List<Pet> lista = new ArrayList<>();
         try { 
-            String sql = "SELECT * FROM pet WHERE nome = ?";
+            String sql = "SELECT * FROM pet WHERE nome LIKE ?";
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, nome );
+            stm.setString(1, "%" + nome + "%" );
             ResultSet rs = stm.executeQuery();
             while (rs.next()) { 
+                Long id = rs.getLong("id");
                 String petNome = rs.getString("nome");
                 String tipo = rs.getString("tipo");
                 LocalDate nascimento = rs.getDate("nascimento").toLocalDate();
                 Pet p = new Pet();
+                p.setId(id);
                 p.setNome( petNome );
                 p.setTipo( tipo );
                 p.setNascimento( nascimento );
@@ -73,5 +75,21 @@ public class PetDAOImpl implements PetDAO {
         }
         return lista;
     }
-    
+
+    @Override
+    public void atualizar(long id, Pet p) {
+        try { 
+            String sql = "UPDATE pet SET nome = ?, tipo = ?, nascimento = ? WHERE id = ?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, p.getNome());
+            stm.setString(2, p.getTipo());
+            stm.setDate(3, java.sql.Date.valueOf(p.getNascimento()));
+            stm.setLong(4, id);
+            stm.executeUpdate();
+            System.out.println("Pet atualizado com sucesso"); 
+        } catch (SQLException e) {
+            System.out.println("Erro ao conectar");
+            e.printStackTrace();
+        }
+    }
 }

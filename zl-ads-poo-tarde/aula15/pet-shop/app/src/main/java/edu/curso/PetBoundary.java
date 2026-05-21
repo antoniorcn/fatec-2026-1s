@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -62,6 +64,21 @@ public class PetBoundary extends Application {
         paneCampos.add( btnSalvar, 0, 3);
         paneCampos.add( btnPesquisar, 1, 3);
 
+        Button btnLimparCampos = new Button();
+        Image icon = new Image(getClass().getResourceAsStream("/images/new.png"));
+
+        // 2. Wrap it in an ImageView
+        ImageView imageView = new ImageView(icon);
+
+        // 3. Optional: Resize the image to fit the button
+        imageView.setFitHeight(20);
+        imageView.setFitWidth(20);
+
+        // 4. Create the button and set the graphic
+        btnLimparCampos.setGraphic(imageView);
+        paneCampos.add( btnLimparCampos, 4, 0);
+        btnLimparCampos.setOnAction( e -> control.limparCampos() );
+
         Bindings.bindBidirectional( txtNome.textProperty(), control.nome );
         Bindings.bindBidirectional( txtTipo.textProperty(), control.tipo );
         Bindings.bindBidirectional( txtNascimento.textProperty(), 
@@ -85,6 +102,10 @@ public class PetBoundary extends Application {
         table.getColumns().add( colNome );
         table.getColumns().add( colTipo );
         table.getColumns().add( colNascimento );
+
+        table.getSelectionModel().selectedItemProperty().addListener(
+            (obj, antigo, nova) -> control.toBoundary(nova)
+        );
 
         stage.setScene(scn);
         stage.show();
