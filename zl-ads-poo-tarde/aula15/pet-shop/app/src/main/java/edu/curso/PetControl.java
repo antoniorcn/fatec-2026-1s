@@ -56,6 +56,12 @@ public class PetControl {
         );
     }
 
+    public void apagar( int index ){ 
+        Pet p = lista.get( index );
+        dao.apagar( p.getId() );
+        carregar();
+    }
+
     public Pet toEntity() { 
         Pet p = new Pet();
         p.setId( id.get() );

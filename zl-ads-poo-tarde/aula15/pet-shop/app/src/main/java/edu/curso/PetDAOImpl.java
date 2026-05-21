@@ -92,4 +92,18 @@ public class PetDAOImpl implements PetDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void apagar( long id ) { 
+        try { 
+            String sql = "DELETE FROM pet WHERE id = ?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setLong(1, id);
+            stm.executeUpdate();
+            System.out.println("Pet apagado com sucesso"); 
+        } catch (SQLException e) {
+            System.out.println("Erro ao conectar");
+            e.printStackTrace();
+        }
+    }
 }
