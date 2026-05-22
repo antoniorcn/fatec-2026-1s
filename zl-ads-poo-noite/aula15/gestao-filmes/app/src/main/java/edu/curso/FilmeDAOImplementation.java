@@ -54,8 +54,17 @@ public class FilmeDAOImplementation implements FilmeDAO {
 
     @Override
     public void apagar(Filme f) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'apagar'");
+        try { 
+            String sql = "DELETE FROM filme WHERE id = ?";
+
+            PreparedStatement stm = con.prepareStatement( sql );
+            stm.setLong(1, f.getId());
+            stm.executeUpdate();
+            System.out.println("Filme apagado com sucesso");
+        } catch (SQLException e) { 
+            System.out.println("Erro ao conectar no banco de dados");
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -49,6 +49,13 @@ public class FilmeControl {
         return f;
     }
 
+    public void limparCampos() { 
+        id.set(0);
+        titulo.set("");
+        genero.set("");
+        lancamento.set(LocalDate.now());
+    }
+
     public void salvar() {
         Filme f = toEntity();
         System.out.println("ID do Filme ==> " + f.getId());
@@ -57,6 +64,7 @@ public class FilmeControl {
         } else { 
             dao.cadastrar( f );
         }
+        limparCampos();
         carregar();
     }
 
@@ -65,6 +73,12 @@ public class FilmeControl {
         lista.addAll( 
             dao.pesquisarPorTitulo("")
         );
+    }
+
+    public void apagar( int indice ) { 
+        Filme f = lista.get( indice );
+        dao.apagar(f);
+        carregar();
     }
 
     public void pesquisar() {
