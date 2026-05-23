@@ -3,10 +3,11 @@ from typing import Any
 import pygame
 
 class Heroi( pygame.sprite.Sprite ):
-    def __init__(self, x, y, imagem ) -> None:
+    def __init__(self, x, y, piso, imagem ) -> None:
         super().__init__()
         self.x = x
         self.y = y
+        self.piso = piso
         self.vel_x = 0
         self.vel_y = 0
         self.rect = pygame.Rect( (x, y), (128, 128) )
@@ -14,7 +15,11 @@ class Heroi( pygame.sprite.Sprite ):
 
     def update(self) -> None:
         super().update()
-        self.rect.move_ip((self.vel_x, self.vel_y))
+        gravidade = 0.098
+        self.vel_y = self.vel_y + (gravidade * 0.5)
+        self.rect.move_ip((self.vel_x, int(self.vel_y)))
+        if self.rect.y >= self.piso:
+            self.rect.y = self.piso
 
 
 class Boss( pygame.sprite.Sprite ):
@@ -22,9 +27,14 @@ class Boss( pygame.sprite.Sprite ):
         super().__init__()
         self.x = x
         self.y = y
+        self.vel_x = 0
+        self.vel_y = 0
         self.rect = pygame.Rect( (x, y), (128, 128) )
-        self.image = imagem        
+        self.image = imagem    
 
+    def update(self) -> None:
+        super().update()
+        self.rect.move_ip((self.vel_x, self.vel_y))
 
 
 
@@ -49,7 +59,7 @@ heroi_ready = pygame.transform.scale(heroi, (128, 128))
 boss_ready = pygame.transform.scale(boss, (128, 128))
 
 
-heroi_sprite = Heroi(50, 400, heroi_ready)
+heroi_sprite = Heroi(50, 4, 400, heroi_ready)
 boss_sprite = Boss(650, 400, boss_ready)
 
 personagens = pygame.sprite.Group()
@@ -62,6 +72,7 @@ jogando = True
 while jogando:
 
     # Calcula as regras
+    boss_sprite.vel_x = int((heroi_sprite.rect.x - boss_sprite.rect.x) * 0.01)
     personagens.update()
 
     # Atualiza a tela
@@ -77,3 +88,10 @@ while jogando:
         if e.type == pygame.KEYDOWN:
             if e.key == pygame.K_RIGHT:
                 heroi_sprite.vel_x = 1
+            if e.key == pygame.K_LEFT:
+                heroi_sprite.vel_x = -1
+            if e.key == pygame.K_SPACE:
+                heroi_sprite.vel_y = -5          
+        if e.type == pygame.KEYUP:
+            if e.key == pygame.K_RIGHT or e.key == pygame.K_LEFT:
+                heroi_sprite.vel_x = 0               
