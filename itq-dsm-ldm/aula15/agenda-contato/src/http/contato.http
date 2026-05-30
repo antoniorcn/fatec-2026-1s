@@ -1,0 +1,24 @@
+POST http://localhost:8080/contato HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhZ2VuZGEtY29udGF0by1hcGkiLCJzdWIiOiJhbnRvbmlvcmNuQGhvdG1haWwuY29tIiwiZXhwIjoxNzc4ODc3MjE5LCJpYXQiOjE3Nzg4NzM2MTksInJvbGVzIjoiQURNSU4gIEZBQ1RPUl9QQVNTV09SRCJ9.GbiG-l-Vl7OZxPWFvoCuIAA9wBl6ZcZgBWqzRrGUv6YNJFkthTT2rxgzHBum0ldnwUg5YslYUBMISal_Fbv9dQ
+
+{
+  "nome": "Joao Silva",
+  "telefone": "(11) 1111-1111",
+  "email": "joao@teste.com"
+}
+
+
+###
+
+GET http://localhost:8080/contato HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhZ2VuZGEtY29udGF0by1hcGkiLCJzdWIiOiJhbnRvbmlvcmNuQGhvdG1haWwuY29tIiwiZXhwIjoxNzc4ODc3MjE5LCJpYXQiOjE3Nzg4NzM2MTksInJvbGVzIjoiQURNSU4gIEZBQ1RPUl9QQVNTV09SRCJ9.GbiG-l-Vl7OZxPWFvoCuIAA9wBl6ZcZgBWqzRrGUv6YNJFkthTT2rxgzHBum0ldnwUg5YslYUBMISal_Fbv9dQ
+
+
+
+
+###
+
+GET http://localhost:8080/contato/Jose HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJhZ2VuZGEtY29udGF0by1hcGkiLCJzdWIiOiJhbnRvbmlvcmNuQGhvdG1haWwuY29tIiwiZXhwIjoxNzc4ODc3MjE5LCJpYXQiOjE3Nzg4NzM2MTksInJvbGVzIjoiQURNSU4gIEZBQ1RPUl9QQVNTV09SRCJ9.GbiG-l-Vl7OZxPWFvoCuIAA9wBl6ZcZgBWqzRrGUv6YNJFkthTT2rxgzHBum0ldnwUg5YslYUBMISal_Fbv9dQ
+
